@@ -1,5 +1,5 @@
 {
     "name": "surestack",
     "private": true,
-    "workspaces": ["projects/*"]
+    "workspaces": ["packages/*","angular"]
 }
