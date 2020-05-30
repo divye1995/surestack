@@ -1,0 +1,17 @@
+{
+  "name": "@surestack/common",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "prepare" : "yarn build"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  },
+  "files": ["lib/**/*"],
+  "author": "Divye Marwah"
+}

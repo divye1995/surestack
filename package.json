@@ -1,5 +1,9 @@
 {
     "name": "surestack",
     "private": true,
-    "workspaces": ["packages/*","angular"]
+    "workspaces": ["angular","packages/*"],
+    "scripts": {
+        "angular":"yarn workspace @surestack/angular",
+        "common":"yarn workspace @surestack/common"
+    }
 }
