@@ -5,7 +5,11 @@
   "projects": {
     "baseapp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "projects/baseapp",
       "sourceRoot": "projects/baseapp/src",
       "prefix": "app",
@@ -24,7 +28,7 @@
               "projects/baseapp/src/assets"
             ],
             "styles": [
-              "projects/baseapp/src/styles.css"
+              "projects/baseapp/src/styles.scss"
             ],
             "scripts": []
           },
@@ -84,7 +88,7 @@
               "projects/baseapp/src/assets"
             ],
             "styles": [
-              "projects/baseapp/src/styles.css"
+              "projects/baseapp/src/styles.scss"
             ],
             "scripts": []
           }
@@ -150,7 +154,8 @@
           }
         }
       }
-    }},
+    }
+  },
   "cli": {
     "packageManager": "yarn"
   },
