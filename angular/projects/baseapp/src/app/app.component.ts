@@ -1,5 +1,4 @@
 import { Component,OnInit } from '@angular/core';
-import {printHello} from '@surestack/common'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +6,6 @@ import {printHello} from '@surestack/common'
 })
 export class AppComponent implements OnInit{
   ngOnInit(){
-    printHello();
   }
   title = 'baseapp';
 }

@@ -1,0 +1,25 @@
+.section{
+    border:1px solid #000;
+}
+/*
+using flex as only expected single column
+*/
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+.container .about{
+    height: 20vh;
+    flex: 0 0 auto;
+    text-align: center;
+}
+.container .my-works{
+    flex: 1 1 auto; /* want the works section to grow as per the page available or shrink as per the size */
+}
+.container .footer{
+    flex: 0 0 auto; /* want to remain the same height depending on inner content */
+    height: 10vh;
+    width: 100%;
+}
