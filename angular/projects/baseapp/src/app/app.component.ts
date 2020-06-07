@@ -1,4 +1,4 @@
-import { Component,OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component,OnInit, ViewChild, QueryList, AfterViewInit, ViewChildren } from '@angular/core';
 import { CubeComponent } from './three-d/components/cube/cube.component';
 @Component({
   selector: 'app-root',
@@ -6,7 +6,8 @@ import { CubeComponent } from './three-d/components/cube/cube.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit,AfterViewInit{
-  @ViewChild(CubeComponent,{static:false}) private cube :CubeComponent;
+  @ViewChildren(CubeComponent) private components: QueryList<CubeComponent>;
+  shapes :{[k:string]:CubeComponent}={};
   buttonDisabled:boolean = true;
   ngOnInit(){
   }
@@ -23,12 +24,15 @@ export class AppComponent implements OnInit,AfterViewInit{
   ]
   
   swipeLeft(){
-    this.cube.swipeLeft();
+    this.shapes['card'].swipeLeft();
+    this.shapes['prism'].swipeLeft();
   }
   swipeRight(){
-    this.cube.swipeRight();
+    this.shapes['card'].swipeRight();
+    this.shapes['prism'].swipeRight();
   }
   ngAfterViewInit(){
+    this.shapes = this.components.reduce((acc,curr)=>({...acc,[curr.id]:curr}),{});
     this.buttonDisabled = false
   }
 }

@@ -1,25 +1,7 @@
-$size:150px;
 
-
-// #radio-back:checked ~ .scene .cube {
-//     transform: rotateY(180deg);
-//   } 
-//   #radio-left:checked ~ .scene .cube {
-//     transform: rotateY(90deg);
-//   } 
-//   #radio-right:checked ~ .scene .cube {
-//     transform: rotateY(-90deg);
-//   }
-//   #radio-top:checked ~ .scene .cube {
-//     transform: rotateX(-90deg);
-//   }  
-//   #radio-bottom:checked ~ .scene .cube {
-//     transform: rotateX(90deg);
-//   }
 :host{
     --rotate-y-val:0deg;
-
-
+    --face-size:0px;
     %threed-view-holder{
       height:100%;
       width: 100%; 
@@ -55,17 +37,27 @@ $size:150px;
         }  
       
         .card--face--back {
-          background: black;
           transform: rotateY(180deg);
         } 
+    }
+
+    .prism{
+      @extend %threed-view-holder;
+      transform: rotateY(var(--rotate-y-val));
+      .prism--face--front {
+        transform: rotate(0)  translateZ(calc(var(--face-size)*0.288));// just for understanding 
+      }  
+      .prism--face--left {
+        transform: rotateY(120deg) translateZ(calc(var(--face-size)*0.288));
+      } 
+      .prism--face--right{
+        transform: rotateY(-120deg) translateZ(calc(var(--face-size)*0.288));
+      }
     }
 
 
     .cube{
       @extend %threed-view-holder;
-        // transform-origin: center right;
-      // transform: rotateY(var(--rotate-y-val));
-
     }
     
   }

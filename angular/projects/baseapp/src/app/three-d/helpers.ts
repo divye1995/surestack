@@ -8,11 +8,17 @@ var isNotNull = compose(
 var getNonNullProperties = pickBy(isNotNull)
 
 // getCountOfNotNullProperties :: Object -> number
-var getCountOfNotNullProperties = compose(
+export const getCountOfNotNullProperties = compose(
     length,
     keys,
     getNonNullProperties,
 )
+
+export const getRotateFactor = (shape:string) : number=>{
+    if(shape === 'card') return 180;
+    if(shape === 'prism') return 120;
+    return 90;
+}
 
 export const getShapeForAvailableFaces = (object) : string=>{
     if(!object.front) return null;

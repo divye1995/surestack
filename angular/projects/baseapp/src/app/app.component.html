@@ -18,11 +18,11 @@
   Here i say about footer
 </div>
 </div> -->
-<button (click)="swipeLeft()">left</button>
-<button (click)="swipeRight()">right</button>
+<button [disabled]="buttonDisabled" (click)="swipeLeft()">left</button>
+<button [disabled]="buttonDisabled" (click)="swipeRight()">right</button>
 <div class="centered content">
  
-  <ng-sure-cube [height]="100" [width]="100">
+  <ng-sure-cube [size]="100" id="card">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -31,6 +31,23 @@
     <ng-template back>
       <div [ngStyle]="{'height':'100%','background':'green'}">
         back
+      </div>
+    </ng-template>
+  </ng-sure-cube>
+  <ng-sure-cube [size]="100" id="prism">
+    <ng-template  front>
+      <div [ngStyle]="{'height':'100%','background':'blue'}">
+        front
+      </div>
+    </ng-template>
+    <ng-template left>
+      <div [ngStyle]="{'height':'100%','background':'green'}">
+        left
+      </div>
+    </ng-template>
+    <ng-template right>
+      <div [ngStyle]="{'height':'100%','background':'red'}">
+        right
       </div>
     </ng-template>
   </ng-sure-cube>

@@ -1,8 +1,7 @@
-<ng-container *ngIf="{shape:shape$|async } as data">
 
 <div class="scene" #scene>
-<ng-container *ngIf="data.shape === 'card'">
-<div class="card" (click)="onCardClick()" #card>
+<ng-container *ngIf="shape === 'card'">
+<div class="card" #card>
     <div class="face card--face--front">
         <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate"></ng-container>
     </div>
@@ -10,6 +9,41 @@
         <ng-container *ngTemplateOutlet="backfaceTemplate ? backfaceTemplate :defaultFaceTemplate"></ng-container>
     </div>
 </div>
+</ng-container>
+<ng-container *ngIf="shape === 'prism'">
+<div class="prism" #card>
+    <div class="face prism--face--front">
+        <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate"></ng-container>
+    </div>
+    <div class="face prism--face--left">
+        <ng-container *ngTemplateOutlet="leftfaceTemplate ? leftfaceTemplate :defaultFaceTemplate"></ng-container>
+    </div>
+    <div class="face prism--face--right">
+        <ng-container *ngTemplateOutlet="rightfaceTemplate ? rightfaceTemplate :defaultFaceTemplate"></ng-container>
+    </div>
+</div>
+</ng-container>
+<ng-container *ngIf="shape === 'cube'">
+    <div class="cube" #card>
+        <div class="face cube--face--front">
+            <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--back">
+            <ng-container *ngTemplateOutlet="backfaceTemplate? backfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--left">
+            <ng-container *ngTemplateOutlet="leftfaceTemplate ? leftfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--right">
+            <ng-container *ngTemplateOutlet="rightfaceTemplate ? rightfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--top">
+            <ng-container *ngTemplateOutlet="topfaceTemplate ? topfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--bottom">
+            <ng-container *ngTemplateOutlet="bottomfaceTemplate ? bottomfaceTemplate :defaultFaceTemplate"></ng-container>
+        </div>
+    </div>
 </ng-container>
 
 <!-- <div class="cube" (click)="onCubeClick()" #cube>
@@ -23,7 +57,6 @@
  
 </div> -->
 </div>
-</ng-container>
 
 <ng-template #defaultFaceTemplate>
     <div [ngStyle]="{'background':'#21d548'}">
