@@ -29,8 +29,8 @@ $size:150px;
     .scene{
       --rotate-y-val:0deg;
       
-      height:$size;
-      width: $size; 
+      height:100%;
+      width: 100%; 
       perspective: 400px;
       margin-top: 50px;
       

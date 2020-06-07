@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterContentInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterContentInit, AfterViewInit, HostBinding } from '@angular/core';
 import { FrontFaceTemplateDirective, BackFaceTemplateDirective, TopFaceTemplateDirective, BottomFaceTemplateDirective, LeftFaceTemplateDirective, RightFaceTemplateDirective } from '../../directives/faces.directive';
-import { of, Observable, BehaviorSubject, Subject } from 'rxjs';
-import {tap} from 'rxjs/operators'
+import { BehaviorSubject } from 'rxjs';
 import { getShapeForAvailableFaces } from '../../helpers';
   // if only front is given is given then have a front face with default(customizable style type card) style
   // if only front and back is given then we should show only card
@@ -27,26 +26,36 @@ import { getShapeForAvailableFaces } from '../../helpers';
   templateUrl: './cube.component.html',
   styleUrls: ['./cube.component.scss']
 })
-export class CubeComponent implements OnInit,AfterViewInit{
+export class CubeComponent implements OnInit,AfterContentInit{
 
-  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:false}) frontfaceTemplate : TemplateRef<any>;
-  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:false}) backfaceTemplate : TemplateRef<any>;
-  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:false}) topfaceTemplate : TemplateRef<any>;
-  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:false}) bottomfaceTemplate : TemplateRef<any>;
-  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:false}) leftfaceTemplate : TemplateRef<any>;
-  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:false}) rightfaceTemplate : TemplateRef<any>;
+  @HostBinding('style.height.px') get getHeight(){
+    return this.height;
+  }
+  @HostBinding('style.width.px') get getWidth(){
+    return this.width;
+  }
+
+  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:true}) frontfaceTemplate : TemplateRef<any>;
+  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:true}) backfaceTemplate : TemplateRef<any>;
+  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:true}) topfaceTemplate : TemplateRef<any>;
+  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:true}) bottomfaceTemplate : TemplateRef<any>;
+  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:true}) leftfaceTemplate : TemplateRef<any>;
+  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:true}) rightfaceTemplate : TemplateRef<any>;
 
   @ViewChild('scene',{static:false}) scene :ElementRef;
   faceKeys : string[];
   rotateYdeg:number=0;
-  shape$ = new Subject<string>();
+  shape$ = new BehaviorSubject<string>(null);
+  @Input() height=150;
+  @Input() width=150 ;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
-  ngAfterViewInit(){
+  ngAfterContentInit(){
     this.shape$.next( getShapeForAvailableFaces({
       front:this.frontfaceTemplate,
       back:this.backfaceTemplate,
@@ -54,7 +63,7 @@ export class CubeComponent implements OnInit,AfterViewInit{
       bottom:this.topfaceTemplate,
       right:this.rightfaceTemplate,
       left:this.bottomfaceTemplate,
-    }) )
+    }))
   }
   onCardClick(){
     this.scene.nativeElement.style.setProperty('--rotate-y-val',`-${(++this.rotateYdeg)*180}deg`)
