@@ -1,10 +1,13 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { CubeComponent } from './three-d/components/cube/cube.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,AfterViewInit{
+  @ViewChild(CubeComponent,{static:false}) private cube :CubeComponent;
+  buttonDisabled:boolean = true;
   ngOnInit(){
   }
   title = 'baseapp';
@@ -18,4 +21,14 @@ export class AppComponent implements OnInit{
     "face7",
     "face8",
   ]
+  
+  swipeLeft(){
+    this.cube.swipeLeft();
+  }
+  swipeRight(){
+    this.cube.swipeRight();
+  }
+  ngAfterViewInit(){
+    this.buttonDisabled = false
+  }
 }

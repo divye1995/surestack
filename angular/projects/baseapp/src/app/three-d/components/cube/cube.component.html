@@ -1,6 +1,6 @@
 <ng-container *ngIf="{shape:shape$|async } as data">
+
 <div class="scene" #scene>
-   
 <ng-container *ngIf="data.shape === 'card'">
 <div class="card" (click)="onCardClick()" #card>
     <div class="face card--face--front">

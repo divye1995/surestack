@@ -17,6 +17,8 @@ $size:150px;
 //     transform: rotateX(90deg);
 //   }
 :host{
+    --rotate-y-val:0deg;
+
 
     %threed-view-holder{
       height:100%;
@@ -27,12 +29,11 @@ $size:150px;
     }
     
     .scene{
-      --rotate-y-val:0deg;
       
       height:100%;
       width: 100%; 
       perspective: 400px;
-      margin-top: 50px;
+      // margin-top: 50px; // to avoid 3d from overflowing outside
       
       .face{
         height:100%;
