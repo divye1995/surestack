@@ -12,20 +12,20 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class CubeComponent implements OnInit,AfterContentInit{
 
   @HostBinding('style')
-  get style() {
+  private get style() {
     return this.sanitizer.bypassSecurityTrustStyle(
       `--rotate-y-val: ${this.rotateYdeg}deg;height:${this.height}px;width:${this.width}px;`
     );
   }
-  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:true}) frontfaceTemplate : TemplateRef<any>;
-  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:true}) backfaceTemplate : TemplateRef<any>;
-  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:true}) topfaceTemplate : TemplateRef<any>;
-  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:true}) bottomfaceTemplate : TemplateRef<any>;
-  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:true}) leftfaceTemplate : TemplateRef<any>;
-  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:true}) rightfaceTemplate : TemplateRef<any>;
+  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:true}) private frontfaceTemplate : TemplateRef<any>;
+  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:true}) private backfaceTemplate : TemplateRef<any>;
+  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:true}) private topfaceTemplate : TemplateRef<any>;
+  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:true}) private bottomfaceTemplate : TemplateRef<any>;
+  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:true}) private leftfaceTemplate : TemplateRef<any>;
+  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:true}) private rightfaceTemplate : TemplateRef<any>;
 
-  rotateYdeg:number=0;
-  shape$ = new BehaviorSubject<string>(null);
+  private rotateYdeg:number=0;
+  private shape$ = new BehaviorSubject<string>(null);
   @Input() height=150;
   @Input() width=150 ;
 
@@ -34,11 +34,11 @@ export class CubeComponent implements OnInit,AfterContentInit{
     private sanitizer: DomSanitizer,
   ) { }
 
-  ngOnInit() {
+  private ngOnInit() {
     
   }
 
-  ngAfterContentInit(){
+  private ngAfterContentInit(){
     this.shape$.next( getShapeForAvailableFaces({
       front:this.frontfaceTemplate,
       back:this.backfaceTemplate,
@@ -47,11 +47,7 @@ export class CubeComponent implements OnInit,AfterContentInit{
       right:this.rightfaceTemplate,
       left:this.bottomfaceTemplate,
     }))
-  }
-  onCardClick(){
-    this.rotateYdeg = this.rotateYdeg - 180;
-  }
- 
+  } 
 
   swipeLeft(){
     this.rotateYdeg = this.rotateYdeg - 180;
