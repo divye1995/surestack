@@ -2,14 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MyLibModule} from 'my-lib'
 import { AppComponent } from './app.component';
+import { ThreeDModule } from './three-d/three-d.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
-    MyLibModule
+    MyLibModule,
+    ThreeDModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

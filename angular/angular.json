@@ -12,7 +12,7 @@
       },
       "root": "projects/baseapp",
       "sourceRoot": "projects/baseapp/src",
-      "prefix": "app",
+      "prefix": "ng-sure",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

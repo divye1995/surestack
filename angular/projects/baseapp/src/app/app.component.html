@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 <div class="about section">
   <div class="person-info">
   <div class="icon">
@@ -7,6 +7,7 @@
   <div class="name">
     Divye marwah
   </div>
+  <ng-sure-cube [faces]="faces"></ng-sure-cube>
   </div>
 </div>
 <div class="my-works section">
@@ -16,4 +17,20 @@
 <div class="footer section">
   Here i say about footer
 </div>
+</div> -->
+
+<div class="centered content">
+  <ng-sure-cube>
+    <ng-template front>
+      <div [ngStyle]="{'height':'100%','background':'blue'}">
+        front
+      </div>
+    </ng-template>
+    <ng-template back>
+      <div [ngStyle]="{'height':'100%','background':'green'}">
+        back
+      </div>
+    </ng-template>
+  </ng-sure-cube>
 </div>
+

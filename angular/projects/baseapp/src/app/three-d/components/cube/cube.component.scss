@@ -1,0 +1,98 @@
+$size:150px;
+
+
+// #radio-back:checked ~ .scene .cube {
+//     transform: rotateY(180deg);
+//   } 
+//   #radio-left:checked ~ .scene .cube {
+//     transform: rotateY(90deg);
+//   } 
+//   #radio-right:checked ~ .scene .cube {
+//     transform: rotateY(-90deg);
+//   }
+//   #radio-top:checked ~ .scene .cube {
+//     transform: rotateX(-90deg);
+//   }  
+//   #radio-bottom:checked ~ .scene .cube {
+//     transform: rotateX(90deg);
+//   }
+:host{
+
+    %threed-view-holder{
+      height:100%;
+      width: 100%; 
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    
+    .scene{
+      --rotate-y-val:0deg;
+      
+      height:$size;
+      width: $size; 
+      perspective: 400px;
+      margin-top: 50px;
+      
+      .face{
+        height:100%;
+        width: 100%; 
+        border: 1px solid #000;
+        position: absolute;
+        color: #ffff;
+        backface-visibility: hidden;
+      }
+    
+        
+    .card{
+      @extend %threed-view-holder;
+      transform: rotateY(var(--rotate-y-val));
+
+
+        .card--face--front {
+          transform: rotate(0); // just for understanding 
+        }  
+      
+        .card--face--back {
+          background: black;
+          transform: rotateY(180deg);
+        } 
+    }
+
+
+    .cube{
+      @extend %threed-view-holder;
+        // transform-origin: center right;
+      // transform: rotateY(var(--rotate-y-val));
+
+    }
+    
+  }
+
+
+// .cube--face--front {
+//     // transform: rotate(0);
+//   }  
+
+// .cube--face--back {
+//     background: black;
+//     transform: rotateY(180deg);
+//   } 
+//   .left {
+//     background: green;
+//     transform: rotateY(-90deg) translate3d(0, 0, $size/2);
+//   } 
+//   .right {
+//     background: magenta;
+//     transform: rotateY(90deg) translate3d(0, 0, $size/2);
+//   } 
+//   .top {
+//     background: blue;
+//     transform: rotateX(90deg) translate3d(0, 0, $size/2);
+//   } 
+//   .bottom {
+//     background: red;
+//     transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+//   }  
+}
+
