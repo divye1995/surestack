@@ -1,0 +1,52 @@
+
+<div class="scene" #scene>
+<ng-container *ngIf="shape === SHAPES.SHAPE_CARD">
+<div class="card" #card>
+    <div class="face card--face--front">
+        <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+    </div>
+    <div class="face card--face--back">
+        <ng-container *ngTemplateOutlet="backfaceTemplate ? backfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+    </div>
+</div>
+</ng-container>
+<ng-container *ngIf="shape === SHAPES.SHAPE_PRISM">
+<div class="prism" #card>
+    <div class="face prism--face--front">
+        <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate"></ng-container>
+    </div>
+    <div class="face prism--face--left">
+        <ng-container *ngTemplateOutlet="leftfaceTemplate ? leftfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+    </div>
+    <div class="face prism--face--right">
+        <ng-container *ngTemplateOutlet="rightfaceTemplate ? rightfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+    </div>
+</div>
+</ng-container>
+<ng-container *ngIf="shape === SHAPES.SHAPE_CUBE">
+    <div class="cube" #card>
+        <div class="face cube--face--front">
+            <ng-container *ngTemplateOutlet="frontfaceTemplate? frontfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--back" [ngClass]="{'inverted':rotateValues.rotateXdeg!=0 && rotateValues.rotateXdeg%360 !==0 }">
+            <ng-container *ngTemplateOutlet="backfaceTemplate? backfaceTemplate : defaultFaceTemplate || defaultColorTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--left">
+            <ng-container *ngTemplateOutlet="leftfaceTemplate ? leftfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--right">
+            <ng-container *ngTemplateOutlet="rightfaceTemplate ? rightfaceTemplate :defaultFaceTemplate||defaultColorTemplate "></ng-container>
+        </div>
+        <div class="face cube--face--top">
+            <ng-container *ngTemplateOutlet="topfaceTemplate ? topfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+        </div>
+        <div class="face cube--face--bottom">
+            <ng-container *ngTemplateOutlet="bottomfaceTemplate ? bottomfaceTemplate :defaultFaceTemplate || defaultColorTemplate"></ng-container>
+        </div>
+    </div>
+</ng-container>
+</div>
+
+<ng-template #defaultColorTemplate>
+    <div class="defaultView"></div>
+</ng-template>

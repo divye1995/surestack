@@ -1,31 +1,9 @@
-<!-- <div class="container">
-<div class="about section">
-  <div class="person-info">
-  <div class="icon">
-    an icon appears
-  </div>
-  <div class="name">
-    Divye marwah
-  </div>
-  <ng-sure-cube [faces]="faces"></ng-sure-cube>
-  </div>
-</div>
-<div class="my-works section">
-  Here i say about my work
-<div class="filler"></div>
-</div>
-<div class="footer section">
-  Here i say about footer
-</div>
-</div> -->
-<button [disabled]="buttonDisabled" (click)="swipeLeft()">left</button>
-<button [disabled]="buttonDisabled" (click)="swipeRight()">right</button>
-<button [disabled]="buttonDisabled" (click)="swipeTop()">top</button>
-<button [disabled]="buttonDisabled" (click)="swipeBottom()">bottom</button>
 
-<div class="centered content">
- 
-  <ng-sure-cube [size]="100" id="card" [defaultCardColor]="'#34c0eb'">
+example.component.html
+
+```html 
+<!--Card-->
+ <ng-sure-cube [size]="100" id="card" [defaultCardColor]="'#34c0eb'">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -34,8 +12,14 @@
     <ng-template >
       
     </ng-template>
-  </ng-sure-cube>
-  <ng-sure-cube [size]="100" id="prism">
+</ng-sure-cube>
+
+```
+
+[//]:<> put image or live example link for card
+
+```html
+<ng-sure-cube [size]="100" id="prism">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -51,8 +35,15 @@
         right
       </div>
     </ng-template>
-  </ng-sure-cube>
-  <ng-sure-cube [size]="100" id="cube">
+</ng-sure-cube>
+
+```
+
+[//]:<> put image or live example link for prism 
+
+
+```html
+<ng-sure-cube [size]="100" id="cube">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -79,5 +70,14 @@
       </div>
     </ng-template>
   </ng-sure-cube>
-</div>
+```
 
+```javascript
+// create a content child for swiping left or right or top or bottom
+  @ViewChild(CubeComponent) private cube: CubeComponent;
+  // to swipe the cube 
+    cube.swipeLeft();
+    cube.swipeRight();
+    cube.swipeTop();
+    cube.swipeBottom();
+```

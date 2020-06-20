@@ -26,10 +26,21 @@ export class AppComponent implements OnInit,AfterViewInit{
   swipeLeft(){
     this.shapes['card'].swipeLeft();
     this.shapes['prism'].swipeLeft();
+    this.shapes['cube'].swipeLeft()
+
+    
   }
   swipeRight(){
     this.shapes['card'].swipeRight();
     this.shapes['prism'].swipeRight();
+    this.shapes['cube'].swipeRight()
+
+  }
+  swipeTop(){
+    this.shapes['cube'].swipeTop()
+  }
+  swipeBottom(){
+    this.shapes['cube'].swipeBottom()
   }
   ngAfterViewInit(){
     this.shapes = this.components.reduce((acc,curr)=>({...acc,[curr.id]:curr}),{});

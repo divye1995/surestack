@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {CubeComponent} from './components/cube/cube.component'
-import { FrontFaceTemplateDirective, BackFaceTemplateDirective, LeftFaceTemplateDirective, RightFaceTemplateDirective, TopFaceTemplateDirective, BottomFaceTemplateDirective } from './directives/faces.directive';
+import {ThreeDViewComponent} from './components/threedview/threedview.component'
+import { FrontFaceTemplateDirective, BackFaceTemplateDirective, LeftFaceTemplateDirective, RightFaceTemplateDirective, TopFaceTemplateDirective, BottomFaceTemplateDirective, DefaultFaceTemplateDirective } from './directives/faces.directive';
 
 @NgModule({
   declarations: [
-    CubeComponent,
+    ThreeDViewComponent,
     FrontFaceTemplateDirective,
     BackFaceTemplateDirective,
     LeftFaceTemplateDirective,
     RightFaceTemplateDirective,
     TopFaceTemplateDirective,
     BottomFaceTemplateDirective,
+    DefaultFaceTemplateDirective
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    CubeComponent,
+    ThreeDViewComponent,
     FrontFaceTemplateDirective,
     BackFaceTemplateDirective,
     LeftFaceTemplateDirective,
     RightFaceTemplateDirective,
     TopFaceTemplateDirective,
     BottomFaceTemplateDirective,
+    DefaultFaceTemplateDirective,
   ]
 })
 export class ThreeDModule { }

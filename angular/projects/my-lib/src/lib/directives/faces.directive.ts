@@ -24,3 +24,9 @@ export class TopFaceTemplateDirective{
 export class BottomFaceTemplateDirective{
     constructor(templateRef : TemplateRef<any>){}
 }
+
+
+@Directive({selector:'[default]'})
+export class DefaultFaceTemplateDirective{
+    constructor(templateRef : TemplateRef<any>){}
+}

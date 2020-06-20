@@ -1,0 +1,95 @@
+
+:host{
+    --rotate-y-val:0deg;
+    --rotate-x-val:0deg;
+    --rotate-z-val:0deg;
+    --face-size:0px;
+    --defaultCardColor:#21d548;
+    %threed-view-holder{
+      height:100%;
+      width: 100%; 
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    
+    .scene{
+      
+      height:100%;
+      width: 100%; 
+      perspective: 400px;
+      // margin-top: 50px; // to avoid 3d from overflowing outside
+      
+      .face{
+        height:100%;
+        width: 100%; 
+        border: 1px solid #000;
+        position: absolute;
+        color: #ffff;
+        backface-visibility: hidden;
+      }
+    
+        
+    .card{
+      @extend %threed-view-holder;
+      transform: rotateY(var(--rotate-y-val));
+
+
+        .card--face--front {
+          transform: rotate(0); // just for understanding 
+        }  
+      
+        .card--face--back {
+          transform: rotateY(180deg);
+        } 
+    }
+
+    .prism{
+      @extend %threed-view-holder;
+      transform:  translateZ(calc(var(--face-size)*-0.288)) rotateY(var(--rotate-y-val));
+      .prism--face--front {
+        transform: rotate(0)  translateZ(calc(var(--face-size)*0.288));// just for understanding 
+      }  
+      .prism--face--left {
+        transform: rotateY(-120deg) translateZ(calc(var(--face-size)*0.288));
+      } 
+      .prism--face--right{
+        transform: rotateY(120deg) translateZ(calc(var(--face-size)*0.288));
+      }
+    }
+
+
+    .cube{
+      @extend %threed-view-holder;
+      transform:translateZ(calc(var(--face-size)*-0.5)) rotateY(var(--rotate-y-val)) rotateX(var(--rotate-x-val)) rotateZ(var(--rotate-z-val));
+    .cube--face--front{
+        transform: rotateY(0) translateZ(calc(var(--face-size)*0.5));
+    }
+    .cube--face--back{
+      &.inverted{
+        transform:rotateX(180deg) translateZ(calc(var(--face-size)*0.5));
+      }
+      transform: rotateY(180deg) translateZ(calc(var(--face-size)*0.5));
+    }
+    .cube--face--top{
+      transform: rotateX(90deg) translateZ(calc(var(--face-size)*0.5));
+    }
+    .cube--face--bottom{
+      transform: rotateX(-90deg) translateZ(calc(var(--face-size)*0.5));
+    }
+    .cube--face--left{
+      transform: rotateY(-90deg) translateZ(calc(var(--face-size)*0.5));
+    }
+    .cube--face--right{
+      transform: rotateY(90deg) translateZ(calc(var(--face-size)*0.5));
+    }
+  }
+  
+}
+.defaultView{
+  height:100%;
+  width: 100%; 
+  background: var(--defaultCardColor) !important;
+}
+}
+

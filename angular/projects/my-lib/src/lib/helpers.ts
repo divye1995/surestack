@@ -1,5 +1,5 @@
-import {keys,pickBy,isNil,not,identity,length,compose} from 'ramda'
-
+import {keys,pickBy,isNil,not,length,compose} from 'ramda'
+import {SHAPE_CARD,SHAPE_PRISM,SHAPE_CUBE} from './constants'
 var isNotNull = compose(
     not,
     isNil
@@ -23,14 +23,14 @@ export const getRotateFactor = (shape:string) : number=>{
 export const getShapeForAvailableFaces = (object) : string=>{
     if(!object.front) return null;
     var count = getCountOfNotNullProperties(object) 
-    if(count === 1) return 'card'
+    if(count === 1) return SHAPE_CARD
     if(count === 2){
-        if(object.back) return 'card'
-        return 'cube'
+        if(object.back) return SHAPE_CARD
+        return SHAPE_CUBE
     }
     if(count === 3){
-        if(object.left && object.right)  return 'prism'
-        return 'cube'
+        if(object.left && object.right)  return SHAPE_PRISM
+        return SHAPE_CUBE
     }
-    return 'cube'
+    return SHAPE_CUBE
 }
