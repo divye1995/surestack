@@ -3,3 +3,4 @@
  */
 
 export * from './lib/threedview.module';
+export * from './lib/components/threedview/threedview.component';

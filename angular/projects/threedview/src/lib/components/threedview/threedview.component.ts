@@ -13,7 +13,7 @@ import {SHAPE_CARD,SHAPE_PRISM,SHAPE_CUBE} from '../../constants'
 export class ThreeDViewComponent implements OnInit,AfterContentInit{
   
   @HostBinding('style')
-  private get style() {
+  get style() {
     return this.sanitizer.bypassSecurityTrustStyle(
       `--face-size:${this.size}px;
       --rotate-y-val: ${this.rotateValues.rotateYdeg}deg;
@@ -25,25 +25,25 @@ export class ThreeDViewComponent implements OnInit,AfterContentInit{
       `
     );
   }
-  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:true}) private frontfaceTemplate : TemplateRef<any>;
-  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:true}) private backfaceTemplate : TemplateRef<any>;
-  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:true}) private topfaceTemplate : TemplateRef<any>;
-  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:true}) private bottomfaceTemplate : TemplateRef<any>;
-  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:true}) private leftfaceTemplate : TemplateRef<any>;
-  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:true}) private rightfaceTemplate : TemplateRef<any>;
-  @ContentChild(DefaultFaceTemplateDirective,{read:TemplateRef,static:true}) private defaultFaceTemplate : TemplateRef<any>;
+  @ContentChild(FrontFaceTemplateDirective,{read:TemplateRef,static:true}) frontfaceTemplate : TemplateRef<any>;
+  @ContentChild(BackFaceTemplateDirective,{read:TemplateRef,static:true})  backfaceTemplate : TemplateRef<any>;
+  @ContentChild(TopFaceTemplateDirective,{read:TemplateRef,static:true})  topfaceTemplate : TemplateRef<any>;
+  @ContentChild(BottomFaceTemplateDirective,{read:TemplateRef,static:true})  bottomfaceTemplate : TemplateRef<any>;
+  @ContentChild(LeftFaceTemplateDirective,{read:TemplateRef,static:true})  leftfaceTemplate : TemplateRef<any>;
+  @ContentChild(RightFaceTemplateDirective,{read:TemplateRef,static:true})  rightfaceTemplate : TemplateRef<any>;
+  @ContentChild(DefaultFaceTemplateDirective,{read:TemplateRef,static:true})  defaultFaceTemplate : TemplateRef<any>;
 
 
   
-  private SHAPES = {SHAPE_CARD,SHAPE_PRISM,SHAPE_CUBE}
+  SHAPES = {SHAPE_CARD,SHAPE_PRISM,SHAPE_CUBE}
 
-  private rotateValues = {
+  rotateValues = {
     rotateXdeg:0,
     rotateYdeg:0,
     rotateZdeg:0,
   }
-  private rotateFactor: number = 0; 
-  private shape : string;
+  rotateFactor: number = 0; 
+  shape : string;
   @Input() size=100;
   @Input() id! : string;
   @Input() defaultCardColor : string;

@@ -1,13 +1,13 @@
 import { Component,OnInit, ViewChild, QueryList, AfterViewInit, ViewChildren } from '@angular/core';
-import { CubeComponent } from './three-d/components/cube/cube.component';
+import { ThreeDViewComponent } from 'threedview';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit,AfterViewInit{
-  @ViewChildren(CubeComponent) private components: QueryList<CubeComponent>;
-  shapes :{[k:string]:CubeComponent}={};
+  @ViewChildren(ThreeDViewComponent) private components: QueryList<ThreeDViewComponent>;
+  shapes :{[k:string]:ThreeDViewComponent}={};
   buttonDisabled:boolean = true;
   ngOnInit(){
   }

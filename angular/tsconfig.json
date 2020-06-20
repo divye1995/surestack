@@ -21,11 +21,11 @@
       "dom"
     ],
     "paths": {
-      "my-lib": [
-        "dist/my-lib"
+      "threedview": [
+        "dist/threedview"
       ],
-      "my-lib/*": [
-        "dist/my-lib/*"
+      "threedview/*": [
+        "dist/threedview/*"
       ]
     }
   },

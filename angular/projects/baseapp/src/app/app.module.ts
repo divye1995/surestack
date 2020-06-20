@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MyLibModule} from 'my-lib'
 import { AppComponent } from './app.component';
-import { ThreeDModule } from './three-d/three-d.module';
-
+import {ThreeDModule} from 'threedview'
 @NgModule({
   declarations: [
     AppComponent,
@@ -11,7 +9,6 @@ import { ThreeDModule } from './three-d/three-d.module';
   ],
   imports: [
     BrowserModule,
-    MyLibModule,
     ThreeDModule  
   ],
   providers: [],

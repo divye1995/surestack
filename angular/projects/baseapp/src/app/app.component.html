@@ -7,7 +7,7 @@
   <div class="name">
     Divye marwah
   </div>
-  <ng-sure-cube [faces]="faces"></ng-sure-cube>
+  <three-d-view [faces]="faces"></three-d-view>
   </div>
 </div>
 <div class="my-works section">
@@ -25,7 +25,7 @@
 
 <div class="centered content">
  
-  <ng-sure-cube [size]="100" id="card" [defaultCardColor]="'#34c0eb'">
+  <three-d-view [size]="100" id="card" [defaultCardColor]="'#34c0eb'">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -34,8 +34,8 @@
     <ng-template >
       
     </ng-template>
-  </ng-sure-cube>
-  <ng-sure-cube [size]="100" id="prism">
+  </three-d-view>
+  <three-d-view [size]="100" id="prism">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -51,8 +51,8 @@
         right
       </div>
     </ng-template>
-  </ng-sure-cube>
-  <ng-sure-cube [size]="100" id="cube">
+  </three-d-view>
+  <three-d-view [size]="100" id="cube">
     <ng-template  front>
       <div [ngStyle]="{'height':'100%','background':'blue'}">
         front
@@ -78,6 +78,6 @@
         default
       </div>
     </ng-template>
-  </ng-sure-cube>
+  </three-d-view>
 </div>
 
