@@ -1,0 +1,9 @@
+{
+  "sourceRoots": [
+    "./projects/baseapp/src",
+    "./projects/threedview/src"
+  ],
+  "angularCli": {
+    "appName": "playground"
+  }
+}

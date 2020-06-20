@@ -30,3 +30,13 @@ export class BottomFaceTemplateDirective{
 export class DefaultFaceTemplateDirective{
     constructor(templateRef : TemplateRef<any>){}
 }
+
+export const templateDirectives = [
+    FrontFaceTemplateDirective,
+    BackFaceTemplateDirective,
+    LeftFaceTemplateDirective,
+    RightFaceTemplateDirective,
+    TopFaceTemplateDirective,
+    BottomFaceTemplateDirective,
+    DefaultFaceTemplateDirective
+]

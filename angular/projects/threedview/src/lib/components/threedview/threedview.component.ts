@@ -21,6 +21,7 @@ export class ThreeDViewComponent implements OnInit,AfterContentInit{
       --rotate-z-val: ${this.rotateValues.rotateZdeg}deg;
       height:${this.size}px;
       width:${this.size}px;
+      display:inline-block;
       --defaultCardColor:${this.defaultCardColor};
       `
     );

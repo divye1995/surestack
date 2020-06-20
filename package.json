@@ -1,9 +1,27 @@
 {
     "name": "surestack",
     "private": true,
-    "workspaces": ["angular","packages/*"],
+    "workspaces": {
+        "packages":[
+            "angular",
+            "packages/*"
+        ],
+        "nohoist": [
+            "@surestack/angular/@angular",
+            "@surestack/angular/@angular/**",
+            "@surestack/angular/@angular-devkit",
+            "@surestack/angular/@angular-devkit/**",
+            "@surestack/angular/angular-playground",
+            "@surestack/angular/karma-*",
+            "@surestack/angular/ng-packagr"
+
+        ]
+    },
     "scripts": {
-        "angular":"yarn workspace @surestack/angular",
-        "common":"yarn workspace @surestack/common"
+        "angular": "yarn workspace @surestack/angular",
+        "common": "yarn workspace @surestack/common"
+    },
+    "devDependencies": {
+        "lerna": "^3.22.1"
     }
 }
